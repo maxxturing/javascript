@@ -32,6 +32,7 @@
   - const is a constant
 - camelCase looks like the hump in a camel's back
 - Data Types
+
   - Number
   - String
   - Boolean
@@ -40,14 +41,17 @@
   - Null
     - Explicity set a variable with no value
   - Undefined
-    - Variables not et defined
-  - Object
+    - Variables not yet defined
+  - Objects
     - Complex data structures - Arrays, Dates, Object Literals, Functions, etc
       - Functions
         - A method is a function that does something
+      - Objects have
+        - Properties
+        - Methods (things it can do)
   - Symbol
     - Used with objects
-- Control Flow
+  - Control Flow
   - A loop is a type of control flow in JavaScript
     - e.g. a loop on an array of data toUpperCase
   - Conditionals
@@ -56,3 +60,21 @@
       do something
       }
       ```
+  - Types
+    - Primitive Types (Stack)
+      - numbers
+      - strings
+      - Booleans
+      - null
+      - undefined
+      - symbols
+    - Reference Types (Heap)
+      - all types of objects
+        - object literals
+        - arrays
+        - functions
+        - dates
+        - all other objects
+    - Value is stored on stack (quicker)
+    - Space inside stack is limited
+    - Heap (slower) stores reference types

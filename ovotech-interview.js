@@ -222,3 +222,115 @@ function persistence(num) {
 }
 
 console.log(persistence(999));
+
+console.log(" - - - N E W  F U N C T I O N - - - ");
+
+function alphabetPosition(text) {
+  let letterArray = text.split(""),
+    numberArray = [];
+  for (let i = 0; i < letterArray.length; i++) {
+    if (letterArray[i] >= "A" && letterArray[i] <= "Z") {
+      numberArray.push(letterArray[i].charCodeAt(0) - 64);
+    } else if (letterArray[i] >= "a" && letterArray[i] <= "z") {
+      numberArray.push(letterArray[i].charCodeAt(0) - 96);
+    }
+  }
+  return numberArray.join(" ");
+}
+
+console.log(alphabetPosition("The sunset sets at twelve o' clock."));
+
+console.log(" - - - N E W  F U N C T I O N - - - ");
+
+function alphabetPosition(text) {
+  return text
+    .toUpperCase()
+    .match(/[A-Z]/gi)
+    .map(c => c.charCodeAt() - 64)
+    .join(" ");
+}
+
+console.log(alphabetPosition("The sunset sets at twelve o' clock."));
+
+console.log(" - - - N E W  F U N C T I O N - - - ");
+
+// My version
+function encrypt(text, n) {
+  if (text === null) {
+    return null;
+  } else {
+    let textArray = text.split("");
+    while (n-- >= 1) {
+      let firstArr = [],
+        secondArr = [];
+      for (let i = 0; i < textArray.length; i++) {
+        if (i % 2 == 0) {
+          firstArr.push(textArray[i]);
+        } else {
+          secondArr.push(textArray[i]);
+        }
+      }
+      textArray = secondArr.concat(firstArr);
+    }
+    return textArray.join("");
+  }
+}
+
+console.log(encrypt("abcdefg", 1));
+console.log(encrypt("abcdefg", 2));
+console.log(encrypt("abcdefg", 3));
+
+console.log(" - - - N E W  F U N C T I O N - - - ");
+
+// Alex version
+function encrypt(text, n) {
+  let textArray = text.split("");
+  while (n-- >= 1) {
+    const [firstArr, secondArr] = textArray.reduce(
+      ([firstArr, secondArr], currentValue, i) =>
+        i % 2 === 0
+          ? [[...firstArr, currentValue], secondArr]
+          : [firstArr, [...secondArr, currentValue]],
+      [[], []]
+    );
+    textArray = secondArr.concat(firstArr);
+  }
+  encryptedText = textArray.join("");
+  return encryptedText;
+}
+
+console.log(encrypt("abcdefg", 1));
+console.log(encrypt("abcdefgh", 1));
+console.log(encrypt("abcdefg", 2));
+console.log(encrypt("abcdefg", 3));
+
+console.log(" - - - N E W  F U N C T I O N - - - ");
+
+function decrypt(encryptedText, n) {
+  if (encryptedText === null) {
+    return null;
+  } else {
+    let encryptedArr = encryptedText.split("");
+    while (n-- >= 1) {
+      let secondArr = encryptedArr.splice(
+        0,
+        Math.floor(encryptedArr.length / 2)
+      );
+      let firstArr = encryptedArr.splice(0, encryptedArr.length);
+      for (let i = 0; i < firstArr.length + secondArr.length; i++) {
+        if (i % 2 === 0) {
+          encryptedArr.push(firstArr[i / 2]);
+        } else {
+          encryptedArr.push(secondArr[(i - 1) / 2]);
+        }
+      }
+    }
+    return encryptedArr.join("");
+  }
+}
+
+// console.log(decrypt("bdfaceg", 1));
+// console.log(decrypt("bdfhaceg", 1));
+// console.log(decrypt("", 1));
+// console.log(decrypt("daebfcg", 2));
+console.log(decrypt("abcdefg", 3));
