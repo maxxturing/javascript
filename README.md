@@ -75,6 +75,17 @@
         - functions
         - dates
         - all other objects
-    - Value is stored on stack (quicker)
-    - Space inside stack is limited
-    - Heap (slower) stores reference types
+    - Stack & Heap (memory)
+      - Value is stored on stack (quicker)
+      - Space inside stack is limited
+      - Heap (slower) stores reference types
+      - Pointer points to object on heap
+        - Copy of stack variable points to same object on heap
+
+- DOM
+  - Interacting with a browswer
+    - Add content
+    - Change CSS
+    - React to user events
+    - popups
+  - Querying the DOM
